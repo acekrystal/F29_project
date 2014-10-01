@@ -67,6 +67,15 @@ function corporateclean_preprocess_html(&$variables) {
 	endif;
 	
 	drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => '(lte IE 8)&(!IEMobile)', '!IE' => FALSE), 'preprocess' => FALSE));
+
+// F29 Customization
+// This function looks for node 1 and only adds the javascript for this.
+// However it can be extended in different ways if required
+    if ($variables['node']['nid'] = 63 ){
+        drupal_add_js('misc/form.js');
+        drupal_add_js('misc/collapse.js');
+    }
+	
 }
 
 /**
@@ -180,12 +189,7 @@ endif;
 drupal_add_js(drupal_get_path('theme', 'corporateclean') .'/js/myj2.js');
 
 function corporateclean_preprocess_html(&$variables){
-// This function looks for node 1 and only adds the javascript for this.
-// However it can be extended in different ways if required
-    if ($variables['node']['nid'] = 1){
-        drupal_add_js('misc/form.js');
-        drupal_add_js('misc/collapse.js');
-    }
+
 }
 
 ?>
