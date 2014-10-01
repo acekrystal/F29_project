@@ -173,6 +173,19 @@ endif;
 
 ?>
 
+
 <?php
+// F29 Customization
+
 drupal_add_js(drupal_get_path('theme', 'corporateclean') .'/js/myj2.js');
+
+function corporateclean_preprocess_html(&$variables){
+// This function looks for node 1 and only adds the javascript for this.
+// However it can be extended in different ways if required
+    if ($variables['node']['nid'] = 1){
+        drupal_add_js('misc/form.js');
+        drupal_add_js('misc/collapse.js');
+    }
+}
+
 ?>
